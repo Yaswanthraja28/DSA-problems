@@ -1,0 +1,59 @@
+"""
+Problem Statement: Given an array and a sum k, we need to print the length of the longest subarray that sums to k
+"""
+
+
+#bruteforce approroach
+from typing import List
+
+def getLongestSubarray(a: [int], k: int) -> int:
+    n = len(a) 
+    
+    length = 0 
+    for i in range(n):
+        for j in range(i,n):
+            sum+=a[j]
+            if sum==k:
+                length=max(length,j-i+1)
+    return length            
+                                 
+                
+if __name__ == "__main__":
+	a = [2, 3, 5, 1, 9]
+	k = 3
+
+	length = getLongestSubarray(a, k)
+	print(f"The length of the longest subarray is: {length}")
+
+#optimal approach
+from typing import List
+
+def getLongestSubarray(arr: [int], k: int) -> int:
+    n = len(arr)
+    
+    left,right = 0,0
+    sum = arr[0]
+    maxLen= 0 
+    while right < n:
+        
+        while left <= right and sum > k:
+            sum -=arr[left]
+            left+=1
+        
+        if sum==k:
+            maxLen = max(maxLen,right-left+1)
+            
+        right+=1
+        if right < n: sum+=arr[right]
+        
+    return maxLen 
+
+if __name__ =="__main__":
+    a = [2,3,5,1,9]
+    k = 10
+    
+    length = getLongestSubarray(a, k)
+    print(f"The length of the longest subarray is: {length}")
+     
+            
+        
