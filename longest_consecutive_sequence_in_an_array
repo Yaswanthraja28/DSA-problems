@@ -1,0 +1,57 @@
+
+#brute apporoach
+def linearsearch(arr,num):
+    n = len(arr) 
+    
+    for i in range(n):
+        if arr[i]==num:
+            return True
+    return False
+
+def longestsuccessiveelement(arr):
+    n = len(arr) 
+    longest = 1
+    
+    for i in range(n):
+        x = arr[i]
+        count = 1
+        
+        while linearsearch(arr,x+1):
+            x+=1
+            count+=1
+            longest = max(longest,count) 
+    return longest          
+            
+arr =[100,200,1,2,3,4]
+ans = longestsuccessiveelement(arr)
+print("The longest consecutive sequence:",ans) 
+
+
+#optimal approach
+def longestsuccessiveelement(arr):
+    n = len(arr)
+    
+    if n == 0:
+        return 0
+    
+    arr.sort()
+    last_smaller = float('inf')
+    count = 0
+    longest = 1
+    
+    for i in range(n):
+        if arr[i]-1 == last_smaller:
+            count+=1
+            last_smaller = arr[i]
+            
+        elif arr[i] != last_smaller:
+            count = 1
+            last_smaller = arr[i]
+            
+        longest = max(longest,count)
+        
+    return longest                    
+
+arr =[100,200,1,2,3,4]
+ans = longestsuccessiveelement(arr)
+print("The longest consecutive sequence:",ans)     
