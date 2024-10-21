@@ -1,0 +1,13 @@
+def sortedArray(a: [int], b: [int]) -> [int]:
+    s = set()
+    union = []
+
+    for num in a:
+        s.add(num)
+
+    for num in b:
+        s.add(num)
+
+    union = sorted(list(s))
+
+    return union   
