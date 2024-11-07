@@ -1,0 +1,16 @@
+def areRotations(s1, goal):
+    if len(s1)!=len(goal):
+        return False
+    
+    s1_doubled = s1 + s1
+    
+    if goal in s1_doubled:
+        return True 
+    else:
+        return False
+
+if __name__ == "__main__":
+    s1 = "aab"
+    goal = "aba"
+
+    print("true" if areRotations(s1, goal) else "false")
