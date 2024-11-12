@@ -1,0 +1,28 @@
+def solve(s: str) -> int:
+    if len(s) == 0:
+        return 0
+    
+    max_ans = float("-inf")
+    sett = set()
+    l = 0
+    
+    for r in range(len(s)):
+        
+        if s[r] in sett:
+        
+            while l<r and s[r] in sett:
+        
+                sett.remove(s[l])
+        
+                l+=1
+        
+        sett.add(s[r])
+        
+        max_ans = max(max_ans,r - l + 1)
+    
+    return max_ans                    
+
+
+if __name__ == "__main__":
+    str = "abccdef"
+    print("The length of the longest substring without repeating characters is", solve(str))
