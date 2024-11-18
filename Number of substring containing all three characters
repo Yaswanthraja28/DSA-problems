@@ -1,0 +1,44 @@
+#bruteforce approach
+def Three(s):
+    n = len(s)
+    count = 0
+    l = 0
+    hash_map = {0: 0, 1: 0, 2: 0}  
+    
+    for r in range(n):
+        if s[r] in 'abc':
+            hash_map[ord(s[r]) - ord('a')] += 1
+        
+        while hash_map[0] > 0 and hash_map[1] > 0 and hash_map[2] > 0:
+            count += (n - r)  
+
+            if s[l] in 'abc':
+                hash_map[ord(s[l]) - ord('a')] -= 1
+            l += 1
+
+    return count                               
+    
+
+if __name__ == '__main__':
+    str = "bbacba"
+    cnt = Three(str)
+    print("The number of subarrays is:", cnt)
+
+#sliding window
+def Three(s):
+    n = len(s)
+    last_seen = [-1,-1,-1]
+    count = 0
+    for i in range(n):
+        last_seen[ord(s[i]) - ord('a')] = i
+        
+        if last_seen[0]!=-1 and last_seen[1]!=-1 and last_seen[2]!=-1:
+            count+=(1+min(last_seen[0],last_seen[1],last_seen[2]))
+            
+    return count        
+                                
+if __name__ == '__main__':
+    str = "bbacba"
+    cnt = Three(str)
+    print("The number of subarrays is:", cnt)
+    
