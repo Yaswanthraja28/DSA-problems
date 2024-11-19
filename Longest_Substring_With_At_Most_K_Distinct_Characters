@@ -1,0 +1,58 @@
+#brute force approach
+def  Longest_substring(str,k):
+    n = len(str)
+    maxlen = 0
+    mapp = {}
+    
+    for i in range(n):
+        mapp.clear()
+        for j in range(i,n):
+            mapp[str[j]] = mapp.get(str[j],0)+1
+            
+            if len(mapp)<=k:
+                maxlen = max(maxlen,j-i+1)
+            else:
+                break
+            
+    return maxlen            
+
+if __name__ == '__main__':
+    str = "aaabbcc"
+    k = 2
+    cnt = Longest_substring(str,k)
+    print("The number of subarrays is:", cnt)   
+    
+#sliding windows
+def  Longest_substring(str,k):
+    n = len(str)
+    l = 0
+    r = 0 
+    max_len = 0
+    mapp = {}
+    
+    while r<n:
+        mapp[str[r]]=mapp.get(str[r],0)+1
+        
+        if len(mapp)>k:
+            mapp[str[l]]-=1
+            
+            if mapp[str[l]]==0:
+                del mapp[str[l]]
+                
+            l+=1
+            
+        if len(mapp)<=k:
+            max_len = max(max_len,r-l+1)
+            
+        r+=1
+        
+    return max_len                
+             
+            
+                  
+
+if __name__ == '__main__':
+    str = "aabbcccc"
+    k = 2
+    cnt = Longest_substring(str,k)
+    print("The number of subarrays is:", cnt)
