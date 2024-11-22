@@ -1,0 +1,14 @@
+def hasDuplicate(nums):
+    st = set()
+
+    for num in nums:
+        if num in st:
+            return True
+        st.add(num)
+    else:
+        return False
+    
+if __name__=="__main__":
+    nums = [1,2,3]
+    char = hasDuplicate(nums)
+    print(char)
