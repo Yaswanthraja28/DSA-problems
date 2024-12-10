@@ -1,0 +1,17 @@
+from math import ceil
+def smallestDivisor(nums, threshold):
+    low = 1
+    high = max(nums)
+
+    while low <= high:
+        mid = (low + high) // 2
+        if sum(ceil(j / mid) for j in nums) <= threshold:
+            high = mid - 1
+        else:
+            low = mid + 1
+    return low
+
+nums = [1, 2, 3, 4, 5]
+threshold = 8
+ans = smallestDivisor(nums,threshold)
+print("The minimum divisor is:", ans)
