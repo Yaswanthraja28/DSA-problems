@@ -1,0 +1,15 @@
+def swapsorted(arr):
+    n = len(arr)
+    swap = 0
+    
+    sorted_array = sorted(arr)
+    
+    for i in range(n):
+        while arr[i]!=sorted_array[i]:
+            correct_index = arr.index(sorted_array[i])
+            arr[i],arr[correct_index]=arr[correct_index],arr[i]
+            swap+=1
+    return swap
+
+arr = [2, 8, 5, 4, 6]
+print(swapsorted(arr))  # Output: 1
