@@ -1,0 +1,40 @@
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+
+class Solution:
+    def insertAtEnd(self,head,x):
+        new_node = Node(x)
+        
+        while head is None:
+            return new_node
+        
+        current = head
+        
+        while current.next is not None:
+            current= current.next
+        current.next = new_node
+        return head
+        
+        
+def printLinkedList(head):
+    current = head
+    while current:
+        print(current.data, end=" -> ")
+        current = current.next
+    print("None")
+
+if __name__ == "__main__":
+    
+    solution = Solution()
+    
+    head = None
+
+    head = solution.insertAtEnd(head, 10)  
+    head = solution.insertAtEnd(head, 20)  
+    head = solution.insertAtEnd(head, 30)  
+    head = solution.insertAtEnd(head, 28)
+    
+    printLinkedList(head)
+
