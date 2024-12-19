@@ -1,0 +1,37 @@
+#brute approach
+def sumOfUnique(nums):
+        st = set()
+
+        for i in range(len(nums)):
+            for j in range(len(nums)):
+                if nums[i]!=nums[j]:
+                    st.add(nums[i])
+        return sum(st)
+if __name__=="__main__":
+    
+    nums = [1,2,3,2]
+    ch = sumOfUnique(nums)
+    print(ch)
+
+#optimal approach       
+def sumOfUnique(nums):
+    st = set()
+    non_unique = set()
+    
+    for num in nums:
+        if num in st:
+            non_unique.add(num)
+        else:
+            st.add(num)
+            
+    for num in non_unique:
+        if num in st:
+            st.discard(num)
+    
+    return sum(st) 
+   
+if __name__=="__main__":
+    nums = [1,2,3,4,5]
+    #nums = [1,2,3,2]
+    ch = sumOfUnique(nums)
+    print(ch)
