@@ -1,0 +1,30 @@
+#brute approach
+def intersection(nums1,nums2):
+    num = []
+    
+    for i in range(len(nums1)):
+        for j in range(len(nums2)):
+            if nums1[i]==nums2[j]:
+                num.append(nums1[i])
+    return list(set(num))
+
+if __name__=="__main__":
+    nums1=[8,4,8]
+    nums2=[8,4,4]
+    ch = intersection(nums1,nums2)
+    print(ch) 
+
+#optimal approach
+def intersection(nums1,nums2):
+    num = []
+    
+    for i in nums1:
+        if i in nums2 and i not in num:
+            num.append(i)
+    return num
+
+if __name__=="__main__":
+    nums1=[8,4,8]
+    nums2=[8,4,4]
+    ch = intersection(nums1,nums2)
+    print(ch) 
