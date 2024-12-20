@@ -1,0 +1,39 @@
+#passed in every test case
+def containsduplicates(nums,k):
+    st = set()
+    for i in range(len(nums)):
+        if nums[i] in st:
+            return True
+        st.add(nums[i])
+        
+        if len(st)>k:
+            st.remove(nums[i-k])
+    return False
+            
+#nums = [1,2,3,1]
+nums = [1,2,3,1,2,3]
+k = 2
+contain = containsduplicates(nums,k)
+print(contain)
+
+passed 47 testcases out of 59
+"""""class Solution:
+    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
+        st = set()
+        for i in range(len(nums)):
+            for j in range(len(nums)):
+                if nums[i]==nums[j]<=k:
+                    return True
+                else:
+                    return False"""""                  
+                    
+passed in 23 test cases ot of 59                    
+"""class Solution:
+    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
+        st = set()
+        for i in range(len(nums)):
+            st.add(nums[i])
+            if st>k:
+                return False
+            else:
+                return True"""
