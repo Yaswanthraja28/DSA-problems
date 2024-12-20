@@ -1,0 +1,13 @@
+def subArrayRanges(nums):
+    total_sum = 0
+    for i in range(len(nums)):
+        current_max = current_min = nums[i]
+        for j in range(i, len(nums)):
+            current_max = max(current_max, nums[j])
+            current_min = min(current_min, nums[j])
+            total_sum += current_max - current_min
+    return total_sum
+
+nums = [1,2,3]
+ch = subArrayRanges(nums)
+print(ch)
