@@ -1,0 +1,24 @@
+def sortEvenOdd(nums):
+    odd,even = [],[]
+    for i in range(len(nums)):
+        if i%2==0:
+            even.append(nums[i])
+        else:
+            odd.append(nums[i])
+        
+    odd.sort()#non increasing
+    even.sort(reverse=True)#non decreasing
+    result = []
+    
+    for i in range(len(nums)):
+        if i%2==0:
+            result.append(even.pop())
+        else:
+            result.append(odd.pop())
+    
+    return result
+    
+
+nums = [4,1,2,3]
+ch = sortEvenOdd(nums)
+print(ch)
