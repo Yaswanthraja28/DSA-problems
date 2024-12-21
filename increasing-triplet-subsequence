@@ -1,3 +1,4 @@
+#optimal approach 
 def increasingTriplet(nums):
     first = second = float("inf")
     
@@ -14,7 +15,7 @@ nums = [1,2,3,4,5]
 ch = increasingTriplet(nums)
 print(ch)
     
-
+#brute force approach
 def increasingTriplet(nums):
     n=len(nums)
     for i in range(n):
