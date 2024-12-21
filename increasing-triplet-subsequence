@@ -1,0 +1,29 @@
+def increasingTriplet(nums):
+    first = second = float("inf")
+    
+    for n in nums:
+        if n<=first:
+            first = n
+        elif n<=second:
+            second = n
+        else:
+            return True
+    return False
+    
+nums = [1,2,3,4,5]
+ch = increasingTriplet(nums)
+print(ch)
+    
+
+def increasingTriplet(nums):
+    n=len(nums)
+    for i in range(n):
+        for j in range(i,n):
+            for k in range(j,n):
+                if nums[i]<nums[j]<nums[k]:
+                    return True 
+    return False
+
+nums = [1,2,3,4,5]
+ch = increasingTriplet(nums)
+print(ch)
