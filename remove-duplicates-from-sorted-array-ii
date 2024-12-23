@@ -1,0 +1,21 @@
+def removeDuplicates(nums):
+    n = len(nums)
+    k = 2
+    num = []
+    
+    for i in range(n):
+        if i not in num:
+            num.append(nums[i])
+            
+    index = 0
+    
+    for i in range(len(num)):
+        count = nums.count(num[i])
+        for _ in range(min(count,k)):
+            nums[index]=num[i]
+            index+=1
+    return index
+            
+nums = [1,1,1,2,2,3]
+ch = removeDuplicates(nums)
+print(ch)
