@@ -1,0 +1,14 @@
+def removeDuplicates(nums):
+    st = set()
+    index = 0
+    
+    for i in range(len(nums)):
+        if nums[i] not in st:
+            st.add(nums[i])
+            nums[index] = nums[i]
+            index+=1
+    return index
+
+nums = [0,0,1,1,1,2,2,3,3,4]
+ch = removeDuplicates(nums)
+print(ch)
