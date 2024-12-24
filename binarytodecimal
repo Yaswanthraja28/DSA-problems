@@ -1,0 +1,13 @@
+def binarytodecimal(x):
+    n = len(x)
+    p2 = 1
+    num = 0
+    
+    for i in range(n):
+        if x[n-1-i]=="1":
+            num+=p2
+        p2*=2
+    return num
+
+binary = "1010"
+print(binarytodecimal(binary))  # Output: 10
