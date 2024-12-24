@@ -1,0 +1,10 @@
+def temp(a,b):
+    a = a^b
+    b = a^b
+    a = a^b
+    return (a,b)
+
+a = 10
+b = 20
+ch = temp(a,b)
+print(ch)
