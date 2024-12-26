@@ -1,0 +1,41 @@
+def countvowelssubstring(word):
+    n = len(word)
+    c = 0
+    
+    for i in range(n):
+        s = set()
+        for j in range(i,n):
+            if word[j] in "aeiou":
+                s.add(word[j])
+                if len(s)>=5:
+                    c+=1
+            else:
+                break
+            
+    return c
+
+word = "cuaieuouac"
+ch = countvowelssubstring(word)
+print(ch)
+
+
+#this code just passed in 38 testcases
+class Solution:
+    def countVowelSubstrings(self, word: str) -> int:
+        n = len(word)
+        vowel = "aeiou"
+        ans = 0
+
+        l = 0
+        r = n-1
+
+        while l<r:
+            if word[l]!=vowel:
+                l+=1
+            elif word[r]!=vowel:
+                r-=1
+            else:
+                ans+=1
+                l+=1
+                r-=1
+        return ans
