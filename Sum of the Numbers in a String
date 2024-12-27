@@ -1,0 +1,17 @@
+def SumofNumbersinString(s):
+    temp = "0"
+    sum = 0
+    
+    for char in s:
+        if (char.isdigit()):
+            temp+= char
+        else:
+            sum+= int(temp)
+            temp = "0"
+    return sum+int(temp)
+
+
+str1 = "yas1aji43"
+ 
+# Function call
+print(SumofNumbersinString(str1))
