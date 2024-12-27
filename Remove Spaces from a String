@@ -1,0 +1,13 @@
+def removespaces(s):
+    result = []
+    
+    for char in s:
+        if char!=" ":
+            result.append(char)
+            
+    return ''.join(result)
+            
+if __name__ == "__main__":
+    s = "sakkthi sree"
+    #s = "take u forward"
+    print("String after removing the whitespaces:\n" + removespaces(s))
