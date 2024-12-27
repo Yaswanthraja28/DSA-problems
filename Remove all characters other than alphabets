@@ -1,0 +1,24 @@
+"""def removeSpecialCharacter(S):
+    result = ""
+    
+    for i in S:
+        if i.isalpha():
+            result+=i
+    return result if result else -1
+
+S = "$yas*h;a..j, itha'^?" 
+ch = removeSpecialCharacter(S)
+print(ch)"""
+
+def removeSpecialCharacter(s):
+    t = ""
+    for i in s:
+         
+        if (i >= 'A' and i <= 'Z') or (i >= 'a' and i <= 'z'):
+            t += i
+    print(t)
+ 
+# Driver code
+s = "$Gee*k;s..fo, r'Ge^eks?"
+removeSpecialCharacter(s)
+ 
