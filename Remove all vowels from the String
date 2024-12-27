@@ -1,0 +1,13 @@
+def remove_vowels(s):
+    vowels = "aeiouAEIOU"
+    result = ""
+    
+    for char in s:
+        if char not in vowels:
+            result+= char
+    return result
+
+if __name__ == "__main__":
+    s = "YASWANTH"
+    #s = "take u forward"
+    print("String after removing the vowels\n" + remove_vowels(s))
