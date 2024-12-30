@@ -1,0 +1,27 @@
+def maximumSubarraySum(nums,k):
+    n = len(nums)
+    l = 0
+    r = 0
+    summ = 0
+    current_sum = 0
+    unique_element = set()
+  
+    while r<n:
+        if nums[r] in unique_element:
+            while nums[r] in unique_element:
+                unique_element.remove(nums[l])
+                current_sum-=nums[l]
+                l+=1
+        unique_element.add(nums[r])
+        current_sum+=nums[r]
+        
+        if r-l+1==k:
+            summ = max(current_sum,summ)
+            unique_element.remove(nums[l])
+            current_sum-=nums[l]
+            l+=1
+        r+=1
+    return summ
+nums = [1,5,4,2,9,9,9]
+k = 3
+print(maximumSubarraySum(nums, k))  
