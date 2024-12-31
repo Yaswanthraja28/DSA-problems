@@ -1,0 +1,21 @@
+def findRepeatedDnaSequences(s):
+    n = len(s)
+    res = set()
+    seen = set()
+    l = 0
+    r = 0
+    temp = ""
+
+    while r<n:
+        temp+=s[r]
+        r+=1
+        if len(temp)==10:
+            if temp in seen:
+                res.add(temp)
+            else:
+                seen.add(temp)
+            temp = temp[1:]
+    return list(res)
+    
+s = "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"
+print(findRepeatedDnaSequences(s))
