@@ -1,0 +1,18 @@
+def findlength(nums1,nums2):
+    s1 = ''.join([chr(i) for i in nums1])
+    s2 = ''.join([chr(j) for j in nums2])
+    l = 0
+    r = 1
+    ans = 0
+    
+    while r<len(nums1)+1:
+        if s1[l:r] in s2:
+            ans = max(r-l,ans)
+            r+=1
+        else:
+            l+=1
+    return ans    
+
+nums1 = [1,2,3,2,1]
+nums2 = [3,2,1,4,7]
+print(findlength(nums1,nums2))    
