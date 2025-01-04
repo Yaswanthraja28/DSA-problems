@@ -1,0 +1,7 @@
+class Solution:
+    def printTillN(self, N, i=1):
+        if i>N:
+            return 
+        else:
+            print(i,end=" ")
+            self.printTillN(N,i+1)
