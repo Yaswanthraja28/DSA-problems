@@ -1,0 +1,14 @@
+class Solution:
+    def isPrime(self, n, divisor=None):
+        if n <= 1:
+            return False 
+        if divisor is None:  
+            divisor = n - 1
+        if divisor == 1:  
+            return True
+        if n % divisor == 0:  
+            return False
+        return self.isPrime(n, divisor - 1)
+    
+sol = Solution()
+print(sol.isPrime(18))
