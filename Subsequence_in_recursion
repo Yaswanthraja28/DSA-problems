@@ -1,0 +1,18 @@
+def findSubsequences(curr, arr, subArr, res):
+    if curr==len(arr):
+        res.append(subArr.copy())
+        return 
+    subArr.append(arr[curr])
+    findSubsequences(curr+1, arr, subArr, res)
+    subArr.pop()
+    findSubsequences(curr+1, arr, subArr, res)
+
+
+if __name__ == "__main__":
+    arr = [3,1,2]
+    subArr = []
+    res = []
+    findSubsequences(0, arr, subArr, res)
+
+    for subsequence in res:
+        print(" ".join(map(str, subsequence)))
