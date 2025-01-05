@@ -1,0 +1,6 @@
+class Solution:
+    def factorial (self, n,accumulator=1):
+        if n==0:
+            return accumulator
+        else:
+            return self.factorial(n-1,accumulator*n)
