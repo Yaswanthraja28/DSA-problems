@@ -1,0 +1,22 @@
+def triplets(arr):
+    map_freq = {}
+    summ = 0
+    count = 0
+    
+    for i in arr:
+        map_freq[i] = map_freq.get(i,0)+1
+        
+    for i in range(len(arr)):
+        for j in range(i+1,len(arr)):
+            summ = arr[i]+arr[j]
+            
+            if summ in map_freq:
+                count+=1
+                
+    return count
+    
+    
+#arr = [1, 5, 3, 2]
+arr = [2, 3, 4]
+# expected Output: 2
+print(triplets(arr)) 
