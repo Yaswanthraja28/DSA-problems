@@ -1,0 +1,11 @@
+def minimum_balanced(arr):
+    n = len(arr)
+    mid = n//2
+    
+    left_minimum = sum(arr[:mid])
+    right_minimum = sum(arr[mid:])
+    
+    return abs(left_minimum-right_minimum)
+
+arr = [1, 5, 3, 2]
+print(minimum_balanced(arr))
