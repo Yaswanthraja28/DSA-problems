@@ -1,0 +1,21 @@
+class Solution:
+	def TotalPairs(self, nums, k):
+        n = len(nums)
+        nums.sort()
+        count = 0
+        i, j = 0, 1  
+        
+        while j < n:
+            if nums[j] - nums[i] == k:
+                count += 1
+                i += 1
+                j += 1
+            elif nums[j] - nums[i] < k:
+                j += 1
+            else:
+                i += 1
+                if i == j:  
+                    j += 1
+        
+        return count
+
