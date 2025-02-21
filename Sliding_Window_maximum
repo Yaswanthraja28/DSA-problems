@@ -1,0 +1,20 @@
+class Solution:
+    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+        ans = []
+        i = 0
+
+        while i+k<=len(nums):
+            pairs = []
+            j = i
+
+            while j<i+k:
+                pairs.append(nums[j])
+                j+=1
+
+            ans.append(max(pairs))
+            i+=1
+
+        return ans
+
+        
+                        
