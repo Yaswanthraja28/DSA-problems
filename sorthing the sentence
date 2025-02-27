@@ -1,0 +1,14 @@
+class Solution:
+    def sortSentence(self, s: str) -> str:
+        new = [0]*10
+        char = ""
+        for i in s:
+            if not i.isdigit() and i!=" ":
+                char+=i
+
+            elif i.isdigit():
+                new[int(i)] = char
+                char =""
+
+        return " ".join([word for word in new if word])
+        
