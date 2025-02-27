@@ -1,0 +1,14 @@
+class Solution:
+    def checkIfPangram(self, sentence: str) -> bool:
+        lst = [0]*26
+
+        for char in sentence.lower():
+            if char.isalpha():
+                index = ord(char) - ord('a')  
+                lst[index] += 1
+
+        for i in lst:
+            if i<=0:
+                return False
+
+        return True
