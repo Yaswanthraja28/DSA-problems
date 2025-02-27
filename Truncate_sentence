@@ -1,0 +1,15 @@
+class Solution:
+    def truncateSentence(self, s: str, k: int) -> str:
+        result = ""
+        count = 0
+
+        for char in s:
+            if char == " ":
+                count+=1
+
+                if count==k:
+                    break
+
+            result+=char
+
+        return result
