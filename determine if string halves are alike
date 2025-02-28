@@ -1,0 +1,22 @@
+class Solution:
+    def halvesAreAlike(self, s: str) -> bool:
+        vowels = "AEIOUaeiou"
+        mid = len(s)//2
+
+        left = s[:mid]
+        right = s[mid:]
+
+        left_max = 0
+        right_max = 0
+
+        for char in left:
+            if char in vowels:
+                left_max+=1
+
+        for char in right:
+            if char in vowels:
+                right_max+=1
+
+        if left_max==right_max:
+            return True
+        return False
