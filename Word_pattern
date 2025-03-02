@@ -1,0 +1,10 @@
+class Solution:
+    def wordPattern(self, pattern: str, s: str) -> bool:
+        my_dict = {}
+        s_pattern = set(pattern)
+        words = s.split()
+
+        for word in words:
+            my_dict[word] = my_dict.get(word,0)+1
+
+        return len(s_pattern) == len(my_dict)
