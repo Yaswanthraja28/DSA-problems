@@ -1,0 +1,17 @@
+class Solution:
+    def runningSum(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+
+        new = []
+
+        for i in range(n):
+            for j in range(n):
+                subarray = nums[i:j+1]
+
+                if len(new)!=n:
+                    new.append(sum(subarray))
+                else:
+                    break
+
+        return new
+
