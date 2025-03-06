@@ -15,3 +15,15 @@ class Solution:
 
         return new
 
+
+class Solution:
+    def runningSum(self, nums: List[int]) -> List[int]:
+        new = []
+        current_sum = 0
+
+        for num in nums:
+            current_sum+=num
+            new.append(current_sum)
+        return new
+
+
