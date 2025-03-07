@@ -1,0 +1,20 @@
+class Solution:
+    def mostFrequentEven(self, nums: List[int]) -> int:
+        map_freq = {}
+    
+        for num in nums:
+            if num%2==0:
+                map_freq[num] = map_freq.get(num,0)+1
+
+        if not map_freq:
+            return -1
+
+        max_freq = 0
+        result = float('inf')
+
+        for num, freq in map_freq.items():
+            if freq > max_freq or (freq == max_freq and num < result):
+                max_freq = freq
+                result = num
+
+        return result
