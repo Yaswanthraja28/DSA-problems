@@ -1,3 +1,20 @@
+class Solution:
+    def majorityElement(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+
+        map_freq = {}
+
+        for num in nums:
+            map_freq[num] = map_freq.get(num,0)+1
+
+        majority_count = n//3
+        result = []
+
+        for num,count in map_freq.items():
+            if count>majority_count:
+                result.append(num)
+        return result
+
 def majorityElement(arr):
     n = len(arr)
     list = []
