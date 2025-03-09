@@ -1,0 +1,20 @@
+def isBadVersion(version):
+    return version >= 4 
+
+def firstbadversion(n):
+    left,right = 1,n
+    
+    while left<right:
+        mid = (left+right)//2
+        
+        if isBadVersion(mid):
+            right = mid
+            
+        else:
+            left = mid+1
+            
+    return left
+
+n = 5
+bad = 4
+print(firstbadversion(n))        
