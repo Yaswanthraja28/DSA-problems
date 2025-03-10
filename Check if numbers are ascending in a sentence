@@ -1,0 +1,22 @@
+class Solution:
+    def areNumbersAscending(self, s: str) -> bool:
+        nums = []
+        num = ""
+
+        for i in s:
+            if i.isdigit():
+                num+=i
+
+            else:
+                if num:
+                    nums.append(int(num))
+                    num = ""
+
+        if num:
+            nums.append(int(num))
+
+        for i in range(1,len(nums)):
+            if nums[i]<=nums[i-1]:
+                return False
+
+        return True
