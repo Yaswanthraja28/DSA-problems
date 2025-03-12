@@ -1,0 +1,13 @@
+class Solution:
+    def maximumCount(self, nums: List[int]) -> int:
+        maxi_pos = 0
+        maxi_neg = 0
+
+        for i in nums:
+            if i>0:
+                maxi_pos+=1
+
+            elif i<0:
+                maxi_neg+=1
+
+        return max(maxi_pos,maxi_neg)
