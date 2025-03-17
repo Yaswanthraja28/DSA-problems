@@ -1,0 +1,16 @@
+class Solution:
+    def licenseKeyFormatting(self, s: str, k: int) -> str:
+        ans = ""
+        count = 0
+
+        s = s.replace("-","").upper()
+
+        for i in range(len(s)-1,-1,-1):
+            ans+=s[i]
+            count+=1
+
+            if count == k and i!=0:
+                ans+="-"
+                count = 0
+
+        return ans[::-1]
