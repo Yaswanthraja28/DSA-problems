@@ -1,0 +1,16 @@
+class Solution:
+    def findDuplicate(self, nums: List[int]) -> int:
+        map_freq = {}
+        
+        for num in nums:
+            if num in map_freq:
+                map_freq[num] += 1
+            else:
+                map_freq[num] = 1
+
+
+        for key,value in map_freq.items():
+            if value>=2:
+                return key
+
+        return -1
