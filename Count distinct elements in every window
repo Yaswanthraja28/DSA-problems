@@ -1,0 +1,21 @@
+class Solution:
+    def countDistinct(self, arr, k):
+        count = []
+        i = 0
+        j = 0
+        map_freq = {}
+        
+        while j<len(arr):
+            map_freq[arr[j]] = map_freq.get(arr[j],0)+1
+            
+            if j - i+1 == k:
+                count.append(len(map_freq))
+                map_freq[arr[i]]-=1
+                if map_freq[arr[i]] == 0:
+                    del map_freq[arr[i]]
+                    
+                i+=1
+                
+            j+=1
+            
+        return count
